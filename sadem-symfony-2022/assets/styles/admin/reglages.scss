@@ -1,0 +1,31 @@
+.reseau-input {
+  padding: 2px;
+}
+
+.finduchamps {
+  border-top-right-radius: 32px !important;
+  border-bottom-right-radius: 32px !important;
+  background-color: #fff;
+  height: 48px;
+
+}
+
+.network {
+  border-top-left-radius: 32px !important;
+  border-bottom-left-radius: 32px !important;
+  background-color: #fff;
+  height: 48px;
+}
+
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #ced4da;
+  outline: 0;
+  box-shadow: 0 0 0 0 !important;
+
+}
+
+
+

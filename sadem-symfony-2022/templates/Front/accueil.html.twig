@@ -1,0 +1,96 @@
+{% extends 'Front/base.html.twig' %}
+
+{% block title %}
+	Maxxess Articles
+{% endblock %}
+
+{% block body %}
+	<!-- Page Header-->
+	<div class="bootstrap-iso">
+
+		<header class="bootstrap-iso masthead" style="background-image: url('{{ asset('images/front/home-bg.jpeg') }}')">
+			<div class="bootstrap-iso container position-relative px-4 px-lg-5">
+				<div class="bootstrap-iso row gx-4 gx-lg-5 justify-content-center">
+					<div class="bootstrap-iso col-md-10 col-lg-8 col-xl-7">
+						<div class="site-heading">
+							<h1>Maxxess Articles</h1>
+							<span class="subheading">Toutes les actualités Nationales & Régionales</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+
+		<!-- Carousel-->
+		<div class="container text-center my-3">
+			<div class="container px-4 px-lg-5">
+				<div class="row gx-4 gx-lg-5 justify-content-center">
+					<div class="col-md-10 col-lg-8 col-xl-7">
+						<h1 align="center">Nos derniers articles</h1>
+
+						<!-- Divider-->
+						<hr
+						class="my-4"/>
+					<!-- Pager-->
+
+					</div>
+				</div>
+			</div>
+
+			<div class="row mx-auto my-auto justify-content-center">
+				<div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+					<div class="carousel-inner" role="listbox">
+
+						{% set first = "active" %}
+
+						{% for article in articles %}
+							<div class="carousel-item {{ first }}">
+								<div class="col-md-3">
+									<div class="card article-card">
+										<div class="card-img-block">
+											<img class="card-img-top" src="{{ article.featuredMedia }}" alt="Image mise en avant">
+										</div>
+										<div class="card-body pt-0">
+											<h5>
+												<a href="{{ path('article', {'id': article.id}) }}" class="js-link card-title">{{ article.titre }}</a>
+											</h5>
+											<p class="card-text">{{ article.description|striptags|u.truncate(110, '...') }}</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							{% set first = "" %}
+						{% endfor %}
+					</div>
+
+					<a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					</a>
+					<a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					</a>
+
+				</div>
+			</div>
+		</div>
+
+
+		{#
+								<!-- Main Content-->
+								<div class="container px-4 px-lg-5">
+									<div class="row gx-4 gx-lg-5 justify-content-center">
+										<div class="col-md-10 col-lg-8 col-xl-7">
+											<h1 align="center">Nos vidéos</h1>
+							
+											<!-- Divider-->
+											<hr
+											class="my-4"/>
+										<!-- Pager-->
+							
+										</div>
+									</div>
+								</div>
+							#}
+	</div>
+{% endblock %}

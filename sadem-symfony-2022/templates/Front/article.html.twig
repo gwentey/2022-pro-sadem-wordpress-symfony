@@ -1,0 +1,45 @@
+{% extends 'Front/base.html.twig' %}
+
+{% block title %}
+	Maxxess Articles
+{% endblock %}
+
+{% block stylesheets %}
+	{% for header in article.header %}
+		{{ header|raw }}
+	{% endfor %}
+	{{ parent() }}
+
+{% endblock %}
+
+{% block javascripts %}
+
+	{% for script in article.script %}
+		{{ script|raw }}
+	{% endfor %}
+	{{ parent() }}
+
+{% endblock %}
+
+
+{% block body %}
+
+	<div class="bootstrap-iso">
+		<header class="masthead" style="background-image: url('{{ asset('images/front/home-bg.jpeg') }}')">
+			<div class="container position-relative px-4 px-lg-5">
+				<div class="row gx-4 gx-lg-5 justify-content-center">
+					<div class="col-md-10 col-lg-8 col-xl-7">
+						<div class="site-heading">
+							<h1>Maxxess Articles</h1>
+							<span class="subheading">Toutes les actualités Nationales & Régionales</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+	</div>
+
+
+	{{ article.description|raw }}
+
+{% endblock %}

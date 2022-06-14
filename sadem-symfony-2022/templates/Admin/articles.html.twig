@@ -1,0 +1,77 @@
+{% extends 'Admin/base.html.twig' %}
+
+{% block title %}
+	Les articles
+{% endblock %}
+
+{% block body %}
+
+	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+			<h1 class="h2">Les articles</h1>
+
+			<a href="{{ path('refreshArticles') }}">
+				<input type="image" src="{{ asset('images/admin/reload.png') }}" width="30px" height="auto">
+			</a>
+
+			<!--Dropdown-->
+			<div class="dropdown">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+					Catégorie
+				</button>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+					<li>
+						<a class="dropdown-item" href="#">Auto</a>
+					</li>
+					<li>
+						<a class="dropdown-item" href="#">Moto</a>
+					</li>
+					<li>
+						<a class="dropdown-item" href="#">Autre</a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+		<div class="container">
+
+			<div class="row">
+				{% for article in articles %}
+					<!--Article-->
+					<div class="col-md-4 mt-2 mb-4">
+						<div class="card article-card">
+
+							<div class="card-img-block">
+								<img class="card-img-top" src="{{ article.featuredMedia }}" alt="Image mise en avant">
+							</div>
+							<div class="card-body pt-0">
+								<h5 class="card-title">{{ article.titre }}</h5>
+								<p class="card-text">{{ article.description|striptags|u.truncate(110, '...') }}</p>
+								<div class="card-button">
+									<a href="{{ path('article', { 'id': article.id })}}">
+										<img type="button" src="{{ asset('images/admin/article.png') }}" width="30px" height="auto">
+									</a>
+									<a href="{{ path('changeVisibilityArticle', { 'id': article.id })}}">
+										{% if article.visibility == 1 %}
+											<img class="me-1" type="button" src="{{ asset('images/admin/see.png') }}" width="35px" height="auto">
+										{% else %}
+											<img class="me-1" type="button" src="{{ asset('images/admin/notsee.png') }}" width="35px" height="auto">
+										{% endif %}
+									</a>
+
+									<a style="float: left;" href="{{ path('refreshArticle', { 'id': article.id })}}">
+										<input type="image" src="{{ asset('images/admin/reload.png') }}" width="30px" height="auto">
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--Fin Article-->
+				{% endfor %}
+
+
+			</div>
+
+		</div>
+	</main>
+</div></div>{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'Admin/base.html.twig' %}
+
+{% block title %}Connexion
+{% endblock %}
+
+{% block body %}
+	<div class="position-absolute top-50 start-50 translate-middle">
+		<div class="card">
+			<div class="card-body">
+				<img src="{{ asset('images/admin/maxxess.png') }}" class="">
+
+				<div class="container">
+					<form action="{{ path('connexion') }}" method="post">
+
+						<div class="form-floating mb-3">
+							<input type="text" class="form-control" name="_username" id="username" placeholder="Votre identifiant" value="{{ last_username }}"/>
+							<label for="username">Identifiant</label>
+						</div>
+						<div class="form-floating">
+							<input type="password" class="form-control" name="_password" id="password" placeholder="Votre mot de passe"/>
+							<label for="password">Mot de passe</label>
+						</div>
+						<br/>
+						<div align="center">
+							<button type="submit" class="btn btn-secondary btn-lg">Se connecter</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<br>
+		<div align="center">
+{# 			<a href="{{path('accueil')}}">
+ #}				<input type="image" src="{{ asset('images/admin/retour.png') }}" width="50px" height="auto">
+{# 			</a>
+ #}		</div>
+	</div>
+</div>{% endblock %}

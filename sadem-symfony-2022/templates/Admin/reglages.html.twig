@@ -1,0 +1,74 @@
+{% extends 'Admin/base.html.twig' %}
+
+{% block title %}Réglages
+{% endblock %}
+
+{% block body %}
+
+	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+			<h1 class="h2">Réglages</h1>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-6">
+					<div class="card">
+						<h5 class="card-header">Front Version</h5>
+						<div class="card-body">
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+								<label class="form-check-label" for="flexRadioDefault1">
+									Maxxess
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+								<label class="form-check-label" for="flexRadioDefault2">
+									Default
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="col-6">
+					<div class="card">
+						<h5 class="card-header">Reseaux sociaux</h5>
+						<div class="card-body">
+							{% for network in networks %}
+								<div class="container d-flex justify-content-center reseau-input">
+									<div class="input-group col-sm-7 input-group-lg">
+										<div class="input-group-prepend" style="margin-right: -2px !important;">
+											<span class="input-group-text network">
+												<span class="fa-stack fa-lg">
+													<i class="fas fa-circle fa-stack-2x"></i>
+													<i class="fab fa-{{ network.getNom }} fa-stack-1x fa-inverse"></i>
+												</span>
+											</span>
+										</div>
+										
+										<input type="text" style="font-size: 18px;   border-right: 0 !important; border-left: 0 !important; height: 48px;" class="form-control" value="{{ network.getLien }}">
+										<div class="input-group-append" style="margin-left: -2px !important;">
+											<span class="input-group-text finduchamps"></span>
+										</div>
+									</div>
+								</div>
+
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+			<br/>
+			<div class="d-grid gap-2">
+				<button class="btn btn-primary" type="button">Mettre à jour</button>
+			</div>
+		</div>
+
+
+
+
+	</main>
+{% endblock %}

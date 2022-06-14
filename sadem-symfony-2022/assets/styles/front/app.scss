@@ -1,0 +1,17 @@
+.bootstrap-iso {
+
+  @import "~bootstrap/scss/bootstrap";
+  @import "_custom";
+
+  /* article card style */
+  @import "card_article";
+
+  /* carousel style */
+  @import "carousel";
+
+  
+}
+
+// redefinition de html, body etc...
+@import "reboot";
+
